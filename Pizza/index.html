@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="pizzasmile.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1-Pizza Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <div class="restaurant-name">M1-Pizza</div>
+                <button class="icon-button">🛒</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#desserts">Desserts</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#rating">Rate Us</a></li>
+                    <li><a href="#map">Find Us</a></li>
+                    <li><a href="#payment">Checkout</a></li>
+                    <li><a href="#promotions">Promotions</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#staff">Our Staff</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="section home-section">
+        <div class="home-content">
+            <h1>Welcome to M1-Pizza!</h1>
+            <p>Your favorite place for delicious pizza and more.</p>
+            <a href="#menu" class="btn-primary">View Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <h2>Menu</h2>
+        <div class="box-container">
+            <ul class="item-list">
+                <!-- Menu Item 1 -->
+                <li>
+                    <img src="pizza-margherita.jpg" alt="Margherita Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Margherita Pizza</h3>
+                        <p>$10.00</p>
+                        <p>Classic pizza with tomato sauce, mozzarella, and fresh basil.</p>
+                        <button class="add-to-bucket" data-name="Margherita Pizza" data-price="10.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 2 -->
+                <li>
+                    <img src="pepperoni-pizza.jpg" alt="Pepperoni Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Pepperoni Pizza</h3>
+                        <p>$12.00</p>
+                        <p>Delicious pizza topped with spicy pepperoni slices and extra cheese.</p>
+                        <button class="add-to-bucket" data-name="Pepperoni Pizza" data-price="12.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 3 -->
+                <li>
+                    <img src="vegetarian-pizza.jpg" alt="Vegetarian Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Vegetarian Pizza</h3>
+                        <p>$11.00</p>
+                        <p>Loaded with a variety of fresh vegetables and mozzarella.</p>
+                        <button class="add-to-bucket" data-name="Vegetarian Pizza" data-price="11.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 4 -->
+                <li>
+                    <img src="seafood-pizza.jpg" alt="Seafood Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Seafood Pizza</h3>
+                        <p>$14.00</p>
+                        <p>Featuring shrimp, crab, and squid on a creamy base.</p>
+                        <button class="add-to-bucket" data-name="Seafood Pizza" data-price="14.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 5 -->
+                <li>
+                    <img src="supreme-pizza.jpg" alt="Supreme Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Supreme Pizza</h3>
+                        <p>$13.00</p>
+                        <p>A hearty pizza with all your favorite toppings.</p>
+                        <button class="add-to-bucket" data-name="Supreme Pizza" data-price="13.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 6 -->
+                <li>
+                    <img src="barbecue-chicken.jpg" alt="Barbecue Chicken Pizza" class="item-img">
+                        <div class="item-info">
+                        <h3>Barbecue Chicken Pizza</h3>
+                        <p>$12.50</p>
+                        <p>Sweet and tangy barbecue sauce with tender chicken pieces.</p>
+                        <button class="add-to-bucket" data-name="Barbecue Chicken Pizza" data-price="12.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 7 -->
+                <li>
+                    <img src="meat-lovers.jpg" alt="Meat Lovers Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Meat Lovers Pizza</h3>
+                        <p>$15.00</p>
+                        <p>A hearty pizza with various meats including sausage, bacon, and ham.</p>
+                        <button class="add-to-bucket" data-name="Meat Lovers Pizza" data-price="15.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 8 -->
+                <li>
+                    <img src="white-pizza.jpeg" alt="White Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>White Pizza</h3>
+                        <p>$11.50</p>
+                        <p>Rich and creamy pizza with ricotta, mozzarella, and garlic.</p>
+                        <button class="add-to-bucket" data-name="White Pizza" data-price="11.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 9 -->
+                <li>
+                    <img src="hawaiian-pizza.jpg" alt="Hawaiian Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Hawaiian Pizza</h3>
+                        <p>$12.00</p>
+                        <p>Pizza topped with ham and pineapple for a sweet and savory taste.</p>
+                        <button class="add-to-bucket" data-name="Hawaiian Pizza" data-price="12.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Menu Item 10 -->
+                <li>
+                    <img src="spinach-artichoke.jpeg" alt="Spinach Artichoke Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Spinach Artichoke Pizza</h3>
+                        <p>$13.50</p>
+                        <p>A delicious pizza featuring spinach, artichokes, and feta cheese.</p>
+                        <button class="add-to-bucket" data-name="Spinach Artichoke Pizza" data-price="13.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Additional Menu Items -->
+                <li>
+                    <img src="vegan-pizza.jpg" alt="Vegan Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Vegan Pizza</h3>
+                        <p>$12.00</p>
+                        <p>Delicious pizza with vegan cheese and a variety of fresh vegetables.</p>
+                        <button class="add-to-bucket" data-name="Vegan Pizza" data-price="12.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="pesto-pizza.jpeg" alt="Pesto Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Pesto Pizza</h3>
+                        <p>$11.50</p>
+                        <p>A flavorful pizza with pesto sauce, sun-dried tomatoes, and mozzarella.</p>
+                        <button class="add-to-bucket" data-name="Pesto Pizza" data-price="11.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="alfredo-pizza.jpg" alt="Alfredo Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Alfredo Pizza</h3>
+                        <p>$12.50</p>
+                        <p>Creamy alfredo sauce with chicken and mushrooms on a crispy crust.</p>
+                        <button class="add-to-bucket" data-name="Alfredo Pizza" data-price="12.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="buffalo-chicken.jpg" alt="Buffalo Chicken Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Buffalo Chicken Pizza</h3>
+                        <p>$13.00</p>
+                        <p>Spicy buffalo chicken with ranch dressing and cheddar cheese.</p>
+                        <button class="add-to-bucket" data-name="Buffalo Chicken Pizza" data-price="13.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="smoked-sausage.jpeg" alt="Smoked Sausage Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Smoked Sausage Pizza</h3>
+                        <p>$13.50</p>
+                        <p>Pizza topped with smoked sausage, bell peppers, and onions.</p>
+                        <button class="add-to-bucket" data-name="Smoked Sausage Pizza" data-price="13.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="greek-pizza.jpeg" alt="Greek Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Greek Pizza</h3>
+                        <p>$12.00</p>
+                        <p>Pizza with feta cheese, olives, and a variety of Greek vegetables.</p>
+                        <button class="add-to-bucket" data-name="Greek Pizza" data-price="12.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="sausage-peppers.jpeg" alt="Sausage and Peppers Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Sausage and Peppers Pizza</h3>
+                        <p>$13.00</p>
+                        <p>Spicy sausage and sweet bell peppers with a rich tomato sauce.</p>
+                        <button class="add-to-bucket" data-name="Sausage and Peppers Pizza" data-price="13.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="bacon-cheeseburger.jpg" alt="Bacon Cheeseburger Pizza" class="item-img">
+                    <div class="item-info">
+                        <h3>Bacon Cheeseburger Pizza</h3>
+                        <p>$14.00</p>
+                        <p>Pizza with ground beef, bacon, cheddar cheese, and pickles.</p>
+                        <button class="add-to-bucket" data-name="Bacon Cheeseburger Pizza" data-price="14.00">Add to Bucket</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Desserts Section -->
+    <section id="desserts" class="section">
+        <h2>Desserts</h2>
+        <div class="box-container">
+            <ul class="item-list">
+                <!-- Dessert Item 1 -->
+                <li>
+                    <img src="cheesecake.jpg" alt="Cheesecake" class="item-img">
+                    <div class="item-info">
+                        <h3>Cheesecake</h3>
+                        <p>$6.00</p>
+                        <p>Rich and creamy cheesecake with a graham cracker crust.</p>
+                        <button class="add-to-bucket" data-name="Cheesecake" data-price="6.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 2 -->
+                <li>
+                    <img src="brownie.jpeg" alt="Brownie" class="item-img">
+                    <div class="item-info">
+                        <h3>Brownie</h3>
+                        <p>$5.00</p>
+                        <p>Decadent chocolate brownie with nuts and a fudgy center.</p>
+                        <button class="add-to-bucket" data-name="Brownie" data-price="5.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 3 -->
+                <li>
+                    <img src="tiramisu.jpg" alt="Tiramisu" class="item-img">
+                    <div class="item-info">
+                        <h3>Tiramisu</h3>
+                        <p>$6.00</p>
+                        <p>Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cheese.</p>
+                        <button class="add-to-bucket" data-name="Tiramisu" data-price="6.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 4 -->
+                <li>
+                    <img src="apple-pie.jpeg" alt="Apple Pie" class="item-img">
+                    <div class="item-info">
+                        <h3>Apple Pie</h3>
+                        <p>$5.50</p>
+                        <p>Homemade apple pie with a buttery crust and spiced apples.</p>
+                        <button class="add-to-bucket" data-name="Apple Pie" data-price="5.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 5 -->
+                <li>
+                    <img src="cupcake.jpeg" alt="Cupcake" class="item-img">
+                    <div class="item-info">
+                        <h3>Cupcake</h3>
+                        <p>$4.00</p>
+                        <p>Delicious cupcake with a rich frosting topping.</p>
+                        <button class="add-to-bucket" data-name="Cupcake" data-price="4.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 6 -->
+                <li>
+                    <img src="fruit-tart.jpg" alt="Fruit Tart" class="item-img">
+                    <div class="item-info">
+                        <h3>Fruit Tart</h3>
+                        <p>$7.00</p>
+                        <p>Fresh fruit tart with a light custard filling and a buttery crust.</p>
+                        <button class="add-to-bucket" data-name="Fruit Tart" data-price="7.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 7 -->
+                <li>
+                    <img src="creme-brulee.jpg" alt="Crème Brûlée" class="item-img">
+                    <div class="item-info">
+                        <h3>Crème Brûlée</h3>
+                        <p>$6.50</p>
+                        <p>Classic French dessert with a crispy caramelized top and creamy vanilla custard.</p>
+                        <button class="add-to-bucket" data-name="Crème Brûlée" data-price="6.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 8 -->
+                <li>
+                    <img src="banana-split.jpeg" alt="Banana Split" class="item-img">
+                    <div class="item-info">
+                        <h3>Banana Split</h3>
+                        <p>$7.50</p>
+                        <p>Classic dessert with bananas, ice cream, and various toppings.</p>
+                        <button class="add-to-bucket" data-name="Banana Split" data-price="7.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 9 -->
+                <li>
+                    <img src="macarons.jpg" alt="Macarons" class="item-img">
+                    <div class="item-info">
+                        <h3>Macarons</h3>
+                        <p>$8.00</p>
+                        <p>Elegant French cookies with a delicate almond shell and flavorful filling.</p>
+                        <button class="add-to-bucket" data-name="Macarons" data-price="8.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Dessert Item 10 -->
+                <li>
+                    <img src="panna-cotta.jpg" alt="Panna Cotta" class="item-img">
+                    <div class="item-info">
+                        <h3>Panna Cotta</h3>
+                        <p>$6.00</p>
+                        <p>Delicate Italian dessert with a creamy vanilla base and berry sauce.</p>
+                        <button class="add-to-bucket" data-name="Panna Cotta" data-price="6.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <!-- Additional Dessert Items -->
+                <li>
+                    <img src="gelato.jpg" alt="Gelato" class="item-img">
+                    <div class="item-info">
+                        <h3>Gelato</h3>
+                        <p>$5.00</p>
+                        <p>Italian-style ice cream available in various flavors.</p>
+                        <button class="add-to-bucket" data-name="Gelato" data-price="5.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="fruit-sorbet.jpeg" alt="Fruit Sorbet" class="item-img">
+                    <div class="item-info">
+                        <h3>Fruit Sorbet</h3>
+                        <p>$6.00</p>
+                        <p>Refreshing sorbet made with real fruit and no dairy.</p>
+                        <button class="add-to-bucket" data-name="Fruit Sorbet" data-price="6.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="chocolate-mousse.jpg" alt="Chocolate Mousse" class="item-img">
+                    <div class="item-info">
+                        <h3>Chocolate Mousse</h3>
+                        <p>$6.50</p>
+                        <p>Rich and velvety chocolate mousse with a hint of coffee.</p>
+                        <button class="add-to-bucket" data-name="Chocolate Mousse" data-price="6.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="peach-cobbler.jpeg" alt="Peach Cobbler" class="item-img">
+                    <div class="item-info">
+                        <h3>Peach Cobbler</h3>
+                        <p>$6.00</p>
+                        <p>Warm peach cobbler with a buttery biscuit topping.</p>
+                        <button class="add-to-bucket" data-name="Peach Cobbler" data-price="6.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="raspberry-tart.jpg" alt="Raspberry Tart" class="item-img">
+                    <div class="item-info">
+                        <h3>Raspberry Tart</h3>
+                        <p>$7.00</p>
+                        <p>Delicious tart filled with fresh raspberries and cream.</p>
+                        <button class="add-to-bucket" data-name="Raspberry Tart" data-price="7.00">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="almond-cake.jpeg" alt="Almond Cake" class="item-img">
+                    <div class="item-info">
+                        <h3>Almond Cake</h3>
+                        <p>$6.50</p>
+                        <p>Light and moist almond cake topped with a glaze.</p>
+                        <button class="add-to-bucket" data-name="Almond Cake" data-price="6.50">Add to Bucket</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="caramel-flan.jpg" alt="Caramel Flan" class="item-img">
+                    <div class="item-info">
+                        <h3>Caramel Flan</h3>
+                        <p>$6.00</p>
+                        <p>Silky caramel flan with a rich caramel sauce.</p>
+                        <button class="add-to-bucket" data-name="Caramel Flan" data-price="6.00">Add to Bucket</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promotions" class="section">
+        <h2>Promotions</h2>
+        <div class="promotion-container">
+            <div class="promotion">
+                <h3>Family Meal Deal</h3>
+                <p>Get a large pizza, garlic bread, and a 2-liter soda for just $20.00!</p>
+                <a href="#menu" class="btn-secondary">Order Now</a>
+            </div>
+            <div class="promotion">
+                <h3>Weekend Special</h3>
+                <p>Enjoy 15% off on all menu items every Saturday and Sunday.</p>
+                <a href="#menu" class="btn-secondary">View Menu</a>
+            </div>
+            <div class="promotion">
+                <h3>Loyalty Program</h3>
+                <p>Sign up for our loyalty program and earn rewards with every purchase.</p>
+                <a href="#feedback" class="btn-secondary">Sign Up</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section">
+        <h2>Events</h2>
+        <div class="event-container">
+            <div class="event">
+                <h3>Live Music Night</h3>
+                <p>Join us every Friday night for live music performances starting at 7 PM.</p>
+            </div>
+            <div class="event">
+                <h3>Trivia Tuesdays</h3>
+                <p>Test your knowledge and win prizes every Tuesday at 8 PM.</p>
+            </div>
+            <div class="event">
+                <h3>Kids' Pizza Making Workshop</h3>
+                <p>Bring your kids on Saturdays for a fun pizza-making workshop at 2 PM.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="staff" class="section">
+        <h2>Meet Our Staff</h2>
+        <div class="staff-container">
+            <div class="staff-member">
+                <img src="chef-john.jpeg" alt="Chef John" class="staff-img">
+                <h3>Chef John</h3>
+                <p>Head Chef with over 20 years of experience in creating delicious pizzas.</p>
+            </div>
+            <div class="staff-member">
+                <img src="waitress-emily.jpg" alt="Waitress Emily" class="staff-img">
+                <h3>Emily</h3>
+                <p>Friendly and attentive waitress who ensures you have a great dining experience.</p>
+            </div>
+            <div class="staff-member">
+                <img src="manager-mike.jpeg" alt="Manager Mike" class="staff-img">
+                <h3>Manager Mike</h3>
+                <p>Ensures everything runs smoothly and takes care of all your concerns.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="section">
+        <h2>Customer Feedback</h2>
+        <form id="feedbackForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+            <label for="comments">Your Feedback:</label>
+            <textarea id="comments" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <ul id="feedback-list"></ul>
+    </section>
+
+    <!-- Rating Section -->
+    <section id="rating" class="section">
+        <h2>Rate Us</h2>
+        <div class="rating-stars">
+            <span data-rating="1">★</span>
+            <span data-rating="2">★</span>
+            <span data-rating="3">★</span>
+            <span data-rating="4">★</span>
+            <span data-rating="5">★</span>
+        </div>
+        <form id="ratingForm">
+            <input type="hidden" id="ratingValue" value="">
+            <button type="submit">Submit Rating</button>
+        </form>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="section">
+        <h2>Find Us</h2> 
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96189.26740723175!2d29.206636302734378!3d41.114556000000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caca7a53b688b5%3A0xe5a15e490de2be7a!2sPapa%20John&#39;s%20Pizza!5e0!3m2!1sar!2str!4v1723757152977!5m2!1sar!2str" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="section">
+        <h2>Checkout</h2>
+        <form id="payment-form">
+            <div id="card-element"></div>
+            <button id="submit-payment">Pay</button>
+        </form>
+    </section>
+   
+    <script src="scripts.js"></script>
+</body>
+</html>
